@@ -1,0 +1,7 @@
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+secrets.json
+terraform.tfstate
+.env
+airflow/logs
