@@ -5,6 +5,7 @@ services:
     image: hashicorp/terraform:1.1.0
     volumes:
       - .:/infra
+      - ../secrets.json:/infra/secrets.json
     working_dir: /infra
     environment:
       - GOOGLE_APPLICATION_CREDENTIALS=secrets.json
