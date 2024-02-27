@@ -13,15 +13,28 @@ provider "google" {
   region  = var.region
 }
 
+resource "google_storage_bucket" "dados_publicos" {
+  name     = "dl_${var.project}"
+  location = var.region
 
-resource "google_bigquery_dataset" "dataset" {
-  dataset_id                  = "example_dataset"
-  friendly_name               = "test"
-  description                 = "This is a test description"
-  location                    = "EU"
-  default_table_expiration_ms = 3600000
+  storage_class               = var.storage_class
+  uniform_bucket_level_access = true
 
-  labels = {
-    env = "default"
+  versioning {
+    enabled = true
   }
+
+  force_destroy = true
+}
+
+resource "google_bigquery_dataset" "staging" {
+  dataset_id = var.bq_landing_dataset
+  project    = var.project
+  location   = var.region
+}
+
+resource "google_bigquery_dataset" "production" {
+  dataset_id = var.bq_processed_dataset
+  project    = var.project
+  location   = var.region
 }

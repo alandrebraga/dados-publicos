@@ -5,3 +5,5 @@ secrets.json
 terraform.tfstate
 .env
 airflow/logs
+data
+terraform.tfstate.backup
