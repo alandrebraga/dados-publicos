@@ -1,0 +1,13 @@
+name: censo_superior
+version: 1.0.0
+config-version: 2
+
+profile: dados_publicos
+
+model-paths: ["models"]
+
+models:
+  dados_publicos:
+    processed:
+      schema: processed_dados_publicos
+      +materialized: table

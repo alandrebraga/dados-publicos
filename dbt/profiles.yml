@@ -1,0 +1,14 @@
+dados_publicos:
+  outputs:
+    dev:
+      dataset: processed_dados_publicos
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /usr/app/secrets.json
+      location: US-EAST1
+      method: service-account
+      priority: interactive
+      project: educacao-superior-415319
+      threads: 4
+      type: bigquery
+  target: dev

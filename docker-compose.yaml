@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  dbt_container:
+    image: ghcr.io/dbt-labs/dbt-bigquery:1.6.7
+    network_mode: host
+    volumes:
+      - /home/andreb/projects/dados_publicos/dbt/:/usr/app/dbt/
+      - /home/andreb/projects/dados_publicos/dbt/:/root/.dbt/
+      - /home/andreb/projects/dados_publicos/secrets.json:/usr/app/secrets.json
+    secrets:
+      - dbt_secrets
+
+secrets:
+  dbt_secrets:
+    file: /home/andreb/projects/dados_publicos/secrets.json
