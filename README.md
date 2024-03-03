@@ -25,8 +25,15 @@ docker compose -f infrastructure/docker-compose.yaml run terraform destroy
 
 Ao destruir caso você tenha dados em uso no bigquery o terraform vai reclamar, basta deletar as tabelas do big query para destruir o resto.
 
-## TODO
 
-[] Ajustar CLI para aceitar não fazer upload dos arquivos para o gcp e manter localmente
-[] Criar um dockerfile com duckdb para rodar consulta direto nos csv salvos locamente
-[] Coletar dados do IGC, CPC, IDD e Enade
+## Arquitetura geral do projeto
+
+![alt text](assets/arquitetura.png)
+
+
+## Objetivos
+
+Meu principal objetivo com esse projeto era entender melhor como funciona para fazer upload de arquivos para algum serviço de cloud e como declarar essa infraestrutura com terraform
+
+
+É um projeto simples e sem um próposito geral, foi feito apensar para aprender alguns conceitos
